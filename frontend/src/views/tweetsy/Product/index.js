@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable arrow-body-style */
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable camelcase */
@@ -155,6 +157,9 @@ function EnhancedTableHead({ onSelectAllClick, order, orderBy, numSelected, rowC
         onRequestSort(event, property);
     };
 
+
+    console.log('selected:',selected)
+
     return (
         <TableHead>
             <TableRow>
@@ -171,7 +176,7 @@ function EnhancedTableHead({ onSelectAllClick, order, orderBy, numSelected, rowC
                 </TableCell>
                 {numSelected > 0 && (
                     <TableCell padding="none" colSpan={7}>
-                        <EnhancedTableToolbar numSelected={selected.length} />
+                        <EnhancedTableToolbar numSelected={selected.length}  selected={selected}/>
                     </TableCell>
                 )}
                 {numSelected <= 0 &&
@@ -230,7 +235,56 @@ EnhancedTableHead.propTypes = {
 
 // ==============================|| TABLE HEADER TOOLBAR ||============================== //
 
-const EnhancedTableToolbar = ({ numSelected }) => (
+const EnhancedTableToolbar = ({ numSelected, selected }) => {
+
+    const { dbUser } = useAuth();
+    const [filterName, setFilterName] = React.useState('');
+
+    const handleCollectionName = (e) =>{
+        e.preventDefault();
+        setFilterName(e.target.value);
+    }
+
+
+    console.log('selected:',selected)
+    console.log('numSelected:',numSelected)
+
+
+    const handleCreateColletion = async () => {
+        if (!filterName.trim()) {
+            alert("Please enter a collection name.");
+            return;
+        }
+
+        if (numSelected === 0) {
+            alert("No items selected to create a collection.");
+            return;
+        }
+
+        try {
+            const response = await axios.post('createcollection', 
+                {
+                filter_name: filterName,
+                selectedLeads: selected,
+            },
+            {
+                headers: { Authorization: `Bearer ${dbUser?.token}` },
+            });
+
+            if (response.status === 201) {
+                alert("Collection created successfully!");
+                setFilterName(''); // Reset the collection name
+            } else {
+                alert("Failed to create the collection. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error creating collection:", error);
+            alert("An error occurred while creating the collection.");
+        }
+    };
+
+    
+    return (
     <Toolbar
         sx={{
             p: 0,
@@ -258,11 +312,26 @@ const EnhancedTableToolbar = ({ numSelected }) => (
                 </IconButton>
             </Tooltip>
         )}
+
+        {numSelected > 0 && (
+            <Tooltip title="Create">
+                <input onChange={handleCollectionName} value={filterName}/>
+            </Tooltip>
+        )}
+        {numSelected > 0 && (
+            <Tooltip title="Create">
+                <Button size="large" onClick={handleCreateColletion}>
+                    Create Collection
+                </Button>
+            </Tooltip>
+        )}
     </Toolbar>
 );
+}
 
 EnhancedTableToolbar.propTypes = {
-    numSelected: PropTypes.number.isRequired
+    numSelected: PropTypes.number.isRequired,
+    selected: PropTypes.array,
 };
 
 
@@ -301,6 +370,7 @@ const ProductList = () => {
     const [search, setSearch] = React.useState(initSearch);
     const [rows, setRows] = React.useState([]);
     const [products, setProducts] = React.useState([]);
+    
     // const { products = [] } = useSelector((state) => state.customer || {});
 
     // const customer = useSelector((state) => state);
@@ -462,6 +532,8 @@ const ProductList = () => {
 
         setSelected(newSelected);
     };
+
+    console.log(selected)
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);

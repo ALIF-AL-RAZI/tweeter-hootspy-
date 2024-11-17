@@ -4,7 +4,7 @@ const ExportSave = require("./ExportSave");
 // const FilteredCollection = require("./FilteredCollection");
 const { required } = require("joi");
 // Lead SCHEMA
-const leadSchema = new Schema(
+const filteredleadSchema = new Schema(
   {
     uid: {
       type: String,
@@ -67,11 +67,11 @@ const leadSchema = new Schema(
       ref: "ExportSave",
       required: true,
     },
-    // FilteredCollectionId: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: "FilteredCollection",
-    //   // required: true,
-    // }
+    FilteredCollectionId: {
+      type: Schema.Types.ObjectId,
+      ref: "FilteredCollection",
+      required: true,
+    }
   },
   {
     strict: false,
@@ -79,7 +79,7 @@ const leadSchema = new Schema(
 );
 
 // USER MODEL
-const Lead = model("Lead", leadSchema);
+const FilteredLead = model("FilteredLead", filteredleadSchema);
 
 // EXPORTS
-module.exports = Lead;
+module.exports = FilteredLead;

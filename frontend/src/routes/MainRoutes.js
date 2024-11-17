@@ -9,6 +9,7 @@ const GetCode = Loadable(lazy(() => import('views/tweetsy/GetCode')));
 const Records = Loadable(lazy(() => import('views/tweetsy/Records')));
 const Product = Loadable(lazy(() => import('views/tweetsy/Product')));
 const AllProducts = Loadable(lazy(() => import('views/tweetsy/AllProducts')));
+const FilteredLead = Loadable(lazy(() => import('views/tweetsy/filterLead')));
 const Subscription = Loadable(lazy(() => import('views/tweetsy/subscription')));
 const Settings = Loadable(lazy(() => import('views/tweetsy/Settings')));
 const Expired = Loadable(lazy(() => import('views/tweetsy/expired')));
@@ -56,6 +57,10 @@ const MainRoutes = {
         {
             path: '/allproducts',
             element: <AllProducts />
+        },
+        {
+            path: '/filteredlead',
+            element: <FilteredLead />
         },
         {
             path: '/record/:id',

@@ -80,6 +80,14 @@ const dashboard = {
             url: '/allproducts',
             icon: icons.IconDatabaseExport,
             breadcrumbs: false
+        },
+        {
+            id: 'FilteredLead',
+            title: 'Filtered Leads',
+            type: 'item',
+            url: '/filteredlead',
+            icon: icons.IconDatabaseExport,
+            breadcrumbs: false
         }
         // ,{
         //     id: 'export',

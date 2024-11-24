@@ -45,6 +45,7 @@ app.use("/api/v1/record", require("./routes/recordRoute"));
 app.use("/api/v1/leads", require("./routes/leadRoutes"));
 app.use("/api/v1/allleads", require("./routes/allLeadsRoute"));
 app.use("/api/v1/createcollection", require("./routes/collectionRoute"));
+app.use("/api/v1/tweetliker", require("./routes/likerRoute"));
 
 
 // ROOT GET API

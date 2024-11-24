@@ -1,15 +1,15 @@
-const tweetLikers = require("../utils/tweetLikers")
+const fetchTweetLikers = require("../utils/tweetLikers")
 
 const twitterLiker = async (req, res, next) => {
     try {
       const {
-        user: { uid },
+        // user: { uid },
         body: { postUrl },
       } = req;
 
 
 
-      const likers = await tweetLikers({
+      const likers = await fetchTweetLikers({
         postUrl
       });
 
@@ -24,3 +24,6 @@ const twitterLiker = async (req, res, next) => {
       }
 
     }
+
+
+    module.exports = twitterLiker;

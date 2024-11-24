@@ -347,7 +347,7 @@ const ProductList = () => {
     const { dbUser } = useAuth();
     const theme = useTheme();
     const dispatch = useDispatch();
-    const { exportSaveId } = useParams();
+    const { exportSaveId, FilteredCollectionId } = useParams();
     const valueInit = { screenname: '', leadType: 'followers' };
     const [values, setValues] = React.useState(valueInit);
     const [loading, setLoading] = React.useState(false);

@@ -55,6 +55,10 @@ const MainRoutes = {
             element: <Product />
         },
         {
+            path: '/product/:FilteredCollectionId',
+            element: <Product />
+        },
+        {
             path: '/allproducts',
             element: <AllProducts />
         },

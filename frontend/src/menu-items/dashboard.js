@@ -49,22 +49,22 @@ const dashboard = {
     title: 'Dashboard',
     type: 'group',
     children: [
-        {
-            id: 'records',
-            title: 'Records',
-            type: 'item',
-            url: '/records',
-            icon: icons.IconList,
-            breadcrumbs: false
-        },
-        {
-            id: 'get-code',
-            title: 'Get Code',
-            type: 'item',
-            url: '/get-code',
-            icon: icons.IconDatabaseExport,
-            breadcrumbs: false
-        },
+        // {
+        //     id: 'records',
+        //     title: 'Records',
+        //     type: 'item',
+        //     url: '/records',
+        //     icon: icons.IconList,
+        //     breadcrumbs: false
+        // },
+        // {
+        //     id: 'get-code',
+        //     title: 'Get Code',
+        //     type: 'item',
+        //     url: '/get-code',
+        //     icon: icons.IconDatabaseExport,
+        //     breadcrumbs: false
+        // },
         {
             id: 'lead',
             title: 'Lead',

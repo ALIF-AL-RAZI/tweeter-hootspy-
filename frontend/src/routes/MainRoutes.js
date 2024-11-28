@@ -42,10 +42,10 @@ const MainRoutes = {
             path: '/subscription',
             element: <Subscription />
         },
-        {
-            path: '/records',
-            element: <Records />
-        },
+        // {
+        //     path: '/records',
+        //     element: <Records />
+        // },
         {
             path: '/product',
             element: <Product />

@@ -175,7 +175,7 @@ function EnhancedTableHead({ onSelectAllClick, order, orderBy, numSelected, rowC
     return (
         <TableHead>
             <TableRow>
-                <TableCell padding="checkbox" sx={{ pl: 3 }}>
+                {/* <TableCell padding="checkbox" sx={{ pl: 3 }}>
                     <Checkbox
                         color="primary"
                         indeterminate={numSelected > 0 && numSelected < rowCount}
@@ -185,7 +185,7 @@ function EnhancedTableHead({ onSelectAllClick, order, orderBy, numSelected, rowC
                             'aria-label': 'select all desserts'
                         }}
                     />
-                </TableCell>
+                </TableCell> */}
                 {numSelected > 0 && (
                     <TableCell padding="none" colSpan={7}>
                         <EnhancedTableToolbar numSelected={selected.length} />
@@ -550,7 +550,6 @@ const ProductList = () => {
                                     name="friends_count"
                                     size="small"
                                 />
-                                {/* const properties = ['_id', 'screen_name', 'description', 'website', 'followers_count', 'friends_count', 'blue_verified']; */}
                             </Grid>
                             <Grid item>
                                 <Button onClick={clearSearch} variant="outlined">
@@ -558,8 +557,11 @@ const ProductList = () => {
                                 </Button>
                             </Grid>
                         </Grid>
+
+
+                        
                     </Grid>
-                    <Grid item xs={12} sm={4} sx={{ textAlign: 'right' }}>
+                    {/* <Grid item xs={12} sm={4} sx={{ textAlign: 'right' }}>
                         <Tooltip title="Copy">
                             <IconButton size="large">
                                 <FileCopyIcon />
@@ -576,7 +578,7 @@ const ProductList = () => {
                             </IconButton>
                         </Tooltip>
 
-                        {/* product add & dialog */}
+
                         <Tooltip title="Add Product">
                             <Fab
                                 color="primary"
@@ -592,7 +594,7 @@ const ProductList = () => {
                             handleCloseDialog={handleCloseDialog}
                             {...{ values, setValues, handleSubmit, loading, setLoading }}
                         />
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </CardContent>
 
@@ -627,7 +629,7 @@ const ProductList = () => {
                                         key={index}
                                         selected={isItemSelected}
                                     >
-                                        <TableCell padding="checkbox" sx={{ pl: 3 }} onClick={(event) => handleClick(event, row.name)}>
+                                        {/* <TableCell padding="checkbox" sx={{ pl: 3 }} onClick={(event) => handleClick(event, row.name)}>
                                             <Checkbox
                                                 color="primary"
                                                 checked={isItemSelected}
@@ -635,7 +637,7 @@ const ProductList = () => {
                                                     'aria-labelledby': labelId
                                                 }}
                                             />
-                                        </TableCell>
+                                        </TableCell> */}
                                         {/* <TableCell
                                             align="center"
                                             component="th"

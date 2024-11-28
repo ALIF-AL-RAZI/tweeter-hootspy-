@@ -612,7 +612,7 @@ const ProductList = () => {
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={4} sx={{ textAlign: 'right' }}>
-                        <Tooltip title="Copy">
+                        {/* <Tooltip title="Copy">
                             <IconButton size="large">
                                 <FileCopyIcon />
                             </IconButton>
@@ -621,12 +621,14 @@ const ProductList = () => {
                             <IconButton size="large">
                                 <PrintIcon />
                             </IconButton>
-                        </Tooltip>
-                        <Tooltip title="Filter">
+                        </Tooltip> */}
+                        <p>Add leads</p>
+                        {/* <Tooltip title="Filter">
+                            
                             <IconButton size="large">
                                 <FilterListIcon />
                             </IconButton>
-                        </Tooltip>
+                        </Tooltip>  */}
 
                         {/* product add & dialog */}
                         <Tooltip title="Add Product">
